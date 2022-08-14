@@ -1,0 +1,81 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Main
+{
+    public static int flippingMatrix(List<List<Integer>> matrix) {
+    // Write your code here
+        int n=matrix.size();
+        int n1=n/2;
+        int sum=0,k=0;
+        List<Integer>res=new ArrayList<>(0);
+        for(int i=0;i<n1;i++)
+        {
+            k=0;
+           
+            for(int j=0;j<n1;j++)
+            {
+                res.add(matrix.get(i).get(j));
+               
+                if(i==0)
+                {
+                   res.add(matrix.get(n-1).get(j));
+                  
+                }
+               else
+               {
+                //res.add(list.get(i+1).get(j));
+                res.add(matrix.get(n-1-i).get(j));
+               
+                }
+                if(j==0)
+                {
+                    res.add(matrix.get(i).get(n-1));
+                   
+                }
+                else
+                {
+                    //res.add(list.get(i).get(j+1));
+                    res.add(matrix.get(i).get(n-1-j));
+                   
+                }
+                res.add(matrix.get(n-1-i).get(n-1-j));
+               
+                int max=Collections.max(res);
+                sum=sum+max;
+                
+                /*for(int h=0;h<res.size();h++)
+                {
+                    res.set(h,0);
+                }*/
+                res.clear();
+                
+                
+            }
+        }
+        return sum;
+
+    }
+
+}
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+			List<List<Integer>>list=new ArrayList<>();
+		Scanner s=new Scanner(System.in);
+		for(int i=0;i<6;i++)
+		{
+		    list.add(new ArrayList<Integer>());
+		    for(int j=0;j<6;j++)
+		    {
+		        int q=s.nextInt();
+		        list.get(i).add(j,q);
+		    }
+		}
+		matrix(list);
+	}
+}
+
+
