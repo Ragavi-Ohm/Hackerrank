@@ -1,0 +1,12 @@
+//solved using python
+def superDigit(n, k):
+    # Write your code here
+    if(int(n)<10):
+        return n
+    else:
+        s=0
+        for i in n:
+            s=s+int(i)
+        s=s*k;
+        k=1;
+        return superDigit(str(s),k)
