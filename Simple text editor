@@ -1,0 +1,42 @@
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n,q,k,k1,flag=0,c=0;
+    stack<string>st;
+    
+    string s="";
+    string s1;
+    scanf("%d",&n);
+    st.push(s);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&q);
+        if(q==1)
+        {
+            cin>>s1;
+            //tempa=s;
+            s.append(s1);
+            st.push(s);
+        }
+        else if(q==2)
+        {
+            scanf("%d",&k);
+            //tempb=s;
+            s.erase(s.length()-k);
+            st.push(s);
+        }
+        else if(q==3)
+        {
+            scanf("%d",&k1);
+            cout<<s[k1-1]<<endl;
+        }
+        else if(q==4){
+            
+            st.pop();
+            s=st.top();
+        }
+        else {
+         
+        }
+    }   
+    return 0;
+}
